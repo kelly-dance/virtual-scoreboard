@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+	<title>Virtual Scoreboard</title>
+	<style>
+		* {
+			margin:0;
+			padding:0;
+			box-sizing: border-box;
+		}
+	</style>
+</head>
+<body>
+	Contest Time: <%= minute %> Minutes in
+	<table border="1" width="95%" cellspacing="0">
+		<tr bgcolor="#EEEEEE">
+			<th width="40">Rank</th>
+			<th width="200">Team</th>
+			<th width="40">Solves</th>
+			<th width="40">Penalty</th>
+			<% for(let i = 0; i < numProblems; i++) { %>
+				<th width="60"><%= String.fromCharCode(65+i) %></th>
+			<%}%>
+		</tr>
+		<% for(let i = 0; i < ranks.length; i++) { %>
+			<tr>
+				<td align="center"><%= i+1 %></td>
+				<td><%= ranks[i].name %></td>
+				<td><%= ranks[i].count %></td>
+				<td><%= ranks[i].penalty %></td>
+				<% for(let j = 0; j < numProblems; j++) { %>
+					<% if(ranks[i].problems[j]) { %>
+						<td
+							align="center"
+							bgcolor="<%= ranks[i].problems[j].first ? '#39A137' : '#9CD09B'%>">
+								<%= ranks[i].problems[j].attempts %> - <%= ranks[i].problems[j].time %>
+						</td>
+					<%} else {%>
+						<td></td>
+					<%}%>
+				<%}%>
+			</tr>
+		<%}%>
+	</table>
+</body>
+</html>
