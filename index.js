@@ -2,7 +2,7 @@ const express = require('express');
 const { parse } = require('csv-parse');
 const fs = require('fs');
 
-const startTime = 1693632583e3;//1693681200e3;
+const startTime = 1693681200e3;
 
 (async()=>{
 	const data = await new Promise(resolve => {
