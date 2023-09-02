@@ -39,9 +39,18 @@
 					<%} else {%>
 						<td></td>
 					<%}%>
+					<%}%>
+				</tr>
 				<%}%>
-			</tr>
-		<%}%>
+				<tr>
+					<td></td>
+			<td></td>
+			<td></td>
+			<td>Totals:</td>
+			<% for(let j = 0; j < numProblems; j++) { %>
+				<td><%= solveCounts[j] %></td>
+			<%}%>
+		</tr>
 	</table>
 </body>
 </html>
