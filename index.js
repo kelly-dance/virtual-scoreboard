@@ -2,12 +2,12 @@ const express = require('express');
 const { parse } = require('csv-parse');
 const fs = require('fs');
 
-const startTime = 1693681200e3;
+const startTime = 1694880600e3;
 
 (async()=>{
 	const data = await new Promise(resolve => {
 		const csvData = [];
-		fs.createReadStream('./scoreboard.csv')
+		fs.createReadStream('./naq2018.csv')
 			.pipe(parse())
 			.on('data', row => {
 				csvData.push({
