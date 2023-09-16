@@ -12,7 +12,7 @@ const startTime = 1694880600e3;
 			.on('data', row => {
 				csvData.push({
 					name: row[1],
-					problems: row.slice(5).map(s => {
+					problems: row.slice(6).map(s => {
 						const match = s.match(/(\d+)\n(\d+) min/);
 						if(match)
 							return { attempts: parseInt(match[1]), time: parseInt(match[2]) }
