@@ -2,17 +2,17 @@ const express = require('express');
 const { parse } = require('csv-parse');
 const fs = require('fs');
 
-const startTime = 1695487680e3;
+const startTime = 1699403400e3;
 
 (async()=>{
 	const data = await new Promise(resolve => {
 		const csvData = [];
-		fs.createReadStream('./naq2021.csv')
+		fs.createReadStream('./rmc2023.csv')
 			.pipe(parse())
 			.on('data', row => {
 				csvData.push({
 					name: row[1],
-					problems: row.slice(5).map(s => {
+					problems: row.slice(6).map(s => {
 						const match = s.match(/(\d+)\n(\d+) min/);
 						if(match)
 							return { attempts: parseInt(match[1]), time: parseInt(match[2]) }
