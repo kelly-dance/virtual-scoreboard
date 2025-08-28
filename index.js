@@ -2,13 +2,13 @@ const express = require('express');
 const { parse } = require('csv-parse');
 const fs = require('fs');
 
-const startTime = 1728245400e3;
+const startTime = 1756490400e3;
 const firstCol = 5;
 
 (async()=>{
 	const data = await new Promise(resolve => {
 		const csvData = [];
-		fs.createReadStream('./naq2024.csv')
+		fs.createReadStream('./naq2023.csv')
 			.pipe(parse())
 			.on('data', row => {
 				csvData.push({
